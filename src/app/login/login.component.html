@@ -1,0 +1,29 @@
+
+
+<div class="main-div">
+    <mat-card fxFlex="25">
+    <mat-toolbar color="primary" >Login</mat-toolbar>
+    <form (ngSubmit)="onLogin(loginForm)" name="loginForm" [formGroup]="loginForm" fxLayoutAlign="stetch" fxLayout="column" >
+    <mat-form-field>
+    
+    <input formControlName="username" matInput placeholder="Username" required>
+    <mat-error *ngIf="loginForm.get('username').errors?.required">
+    Require username
+    </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field>
+    
+    <input formControlName="password" matInput type="password" placeholder="Password" required>
+    <mat-error *ngIf="loginForm.get('password').errors?.required">
+    Require password
+    </mat-error>
+    </mat-form-field>
+    
+    <button mat-button type="submit">SignIn</button>
+    <div *ngIf="showErrorMessage">
+    <mat-error>Invalid username and password Please try again</mat-error>
+    </div>
+    </form>
+    </mat-card>
+    </div>
